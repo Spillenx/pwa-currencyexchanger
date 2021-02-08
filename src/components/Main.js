@@ -35,8 +35,6 @@ const Main = () => {
               </div>
             </div>
           </div>
-          <div className="currency-container">
-          </div>
           <div className="currency-output-container">
             <p>Received amount: <span className="currency-received"></span></p>
           </div>

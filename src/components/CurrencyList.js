@@ -3,12 +3,13 @@ import { useState } from 'react'
 
 export default function CurrencyList( currencies ) {
 
-  const [currency, setCurrency] = useState(currencies)
-  console.log(currency)
+  const [currency] = useState(currencies)
 
   function listCurrencies() {
+    const currencyKeys = Object.keys(currency.currencies)
+
     return (
-      <div className="selected-currency">{}</div>
+      <div className="currency-list">{ currencyKeys.map(key => <div className="list-item"> { key } </div> ) }</div>
     )
   }
 
