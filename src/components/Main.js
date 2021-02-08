@@ -19,8 +19,8 @@ const Main = () => {
 
           </div>
           <div className="currency-input-container">
-            <input className="currency-select" id="fromCurrenct"></input>
-            <input className="currency-select" id="toCurrency"></input>
+            <input className="currency-select" id="from-currency"></input>
+            <input className="currency-select" id="to-currency"></input>
           </div>
 
           <div className="currency-output-container">
