@@ -21,28 +21,42 @@ const Main = () => {
     setCurrency(null)
   }
 
-  return ( 
+  function showList() {
+    let list = document.getElementById("currencyList")
+    if (list.style.display === "none") {
+      list.style.display = "block"
+    } else {
+      list.style.display = "none"
+    }
+  }
+
+  return (
+
     <div className="main">
+
+      <div className="currency-list-content" id="currencyList">
+        { currency &&
+          <CurrencyList currencies={ currency.conversion_rates }/>
+        }
+      </div>
+      
       <div className="main-container">
         <div className="currenct-exchange-container">
           <div className="currency-select-container">
             <div className="dropdown">
-              <button className="currency-button" id="from-currency">Select currencies</button>
-              <div className="dropdown-content">
-                { currency &&
-                  <CurrencyList currencies={ currency.conversion_rates }/>
-                }
-              </div>
+              <button className="currency-button" id="from-currency" onClick={ showList }>Select currencies</button>
             </div>
           </div>
           <div className="currency-output-container">
             <p>Received amount: <span className="currency-received"></span></p>
           </div>
         </div>
+        <div className="footer">
           { currency &&
             <p>Last update: { currency.time_last_update_utc }</p>
           }
           <button className="update-currencies" onClick={ refreshCurrencies }>Update currencies</button>
+        </div>
       </div>
     </div>
    )
