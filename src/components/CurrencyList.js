@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 
-export default function CurrencyList( currencies ) {
+const CurrencyList = ( currencies ) => {
 
   const [currency] = useState(currencies)
 
@@ -20,6 +20,7 @@ export default function CurrencyList( currencies ) {
   )
 }
 
+export default CurrencyList
 
 
 
