@@ -12,7 +12,6 @@ const Main = () => {
         const result = await axios.get(URL)
         setCurrency(result.data)
       }
-      console.log(currency)
       fetchData()
     }
   }, [currency])
@@ -39,8 +38,9 @@ const Main = () => {
           <CurrencyList currencies={ currency.conversion_rates }/>
         }
       </div>
-      
+
       <div className="main-container">
+
         <div className="currenct-exchange-container">
           <div className="currency-select-container">
             <div className="dropdown">
@@ -51,13 +51,16 @@ const Main = () => {
             <p>Received amount: <span className="currency-received"></span></p>
           </div>
         </div>
+
         <div className="footer">
           { currency &&
             <p>Last update: { currency.time_last_update_utc }</p>
           }
           <button className="update-currencies" onClick={ refreshCurrencies }>Update currencies</button>
         </div>
+
       </div>
+
     </div>
    )
 }
