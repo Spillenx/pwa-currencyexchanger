@@ -21,7 +21,3 @@ const CurrencyList = ( currencies ) => {
 }
 
 export default CurrencyList
-
-
-
-

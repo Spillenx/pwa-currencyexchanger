@@ -42,19 +42,18 @@ const Main = () => {
       <div className="main-container">
 
         <div className="currenct-exchange-container">
-          <div className="currency-select-container">
-            <div className="dropdown">
-              <button className="currency-button" id="from-currency" onClick={ showList }>Select currencies</button>
-            </div>
-          </div>
-          <div className="currency-output-container">
-            <p>Received amount: <span className="currency-received"></span></p>
-          </div>
+          <input className="exchange-input"></input>
+          <input className="exchange-input"></input>
+        </div>
+
+        <div className="currency-select-container">
+          <button className="currency-button" id="fromCurrency" onClick={ showList }>From Currency</button>
+          <button className="currency-button" id="toCurrency" onClick={ showList }>To Currency</button>
         </div>
 
         <div className="footer">
           { currency &&
-            <p>Last update: { currency.time_last_update_utc }</p>
+            <p>Latest update: { currency.time_last_update_utc }</p>
           }
           <button className="update-currencies" onClick={ refreshCurrencies }>Update currencies</button>
         </div>
