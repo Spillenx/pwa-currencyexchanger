@@ -112,7 +112,7 @@ body {
   }
 }
 
-.currency-list-content a {
+.currency-list-content {
   color: black;
   animation: 10s slide-up;
   margin-top: 0%;

@@ -1,16 +1,15 @@
 import { useState, useEffect } from 'react'
-import axios from 'axios'
 import CurrencyList from './CurrencyList'
+import { fetchAPI } from '../api/fetchAPI'
 
 const Main = () => {
-  const URL = 'https://v6.exchangerate-api.com/v6/86ac07a01d57484529525c6c/latest/SEK'
   const [currency, setCurrency] = useState(null)
 
   useEffect(() => {
-    if(currency===null) {
+    if(currency === null) {
       const fetchData = async() => {
-        const result = await axios.get(URL)
-        setCurrency(result.data)
+        const result = await fetchAPI()
+        setCurrency(result)
       }
       fetchData()
     }
@@ -35,7 +34,7 @@ const Main = () => {
 
       <div className="currency-list-content" id="currencyList">
         { currency &&
-          <CurrencyList currencies={ currency.conversion_rates }/>
+          <CurrencyList currencies={ currency.conversion_rates } />
         }
       </div>
 

@@ -9,7 +9,7 @@ const CurrencyList = ( currencies ) => {
     const currencyKeys = Object.keys(currency.currencies)
 
     return (
-      <div className="currency-list">{ currencyKeys.map(key => <div className="list-item"><a> { key } </a></div> ) }</div>
+      <div className="currency-list">{ currencyKeys.map(key => <div className="list-item"> { key } </div> ) }</div>
     )
   }
 
