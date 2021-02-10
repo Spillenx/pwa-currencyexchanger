@@ -54,40 +54,43 @@ body {
   z-index: 0;
 }
 
-.currency-select-container {
+.exchange-container {
   display: flex;
+  margin: 5px;
+  background-color: #63d4b2;
   justify-content: center;
+  border-radius: 5px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 
-.currency-input-container {
-  display: flex;
-  justify-content: center;
+.amount {
+  width: 50%;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
 }
 
-.currenct-exchange-container {
-  display: flex;
-  justify-content: center;
+.amount p {
+  color: white;
+  text-align: center;
+  margin : 0 auto;
 }
 
 .exchange-input {
   margin: 5px;
   border: none;
   border-radius: 5px;
+  width: 90%;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  width: 34%;
 }
 
 .currency-button {
-  background-color: #63d4b2;
   color: white;
-  margin: 5px;
-  width: 35%;
+  text-align: center;
+  width: 50%;
   padding: 16px;
   font-size: 16px;
   border: none;
-  border-radius: 5px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  cursor: pointer;
 }
 
 .currency-list-content {

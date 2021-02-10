@@ -39,7 +39,7 @@ const Main = () => {
     return (
       <div className="currency-list">
         { currencyKeys.map((curr, index) => 
-          <div className="list-item" key={index} onClick={() => selectedCurrency(curr) }> { curr } </div>
+          <div className="list-item" key={ index } onClick={ () => selectedCurrency(curr) }> { curr } </div>
         ) }
       </div>
     )
@@ -68,14 +68,20 @@ const Main = () => {
 
       <div className="main-container">
 
-        <div className="currenct-exchange-container">
-          <input className="exchange-input"></input>
-          <input className="exchange-input"></input>
+        <div className="exchange-container">
+          <div className="amount">
+            <p>Give</p>
+            <input className="exchange-input"></input>
+          </div>
+          <div className="currency-button" id="selectFromCurrency" onClick={ () => showList('from') }>From<br/>{ fromCurrency }</div>
         </div>
 
-        <div className="currency-select-container">
-          <button className="currency-button" id="selectFromCurrency" onClick={ () => showList('from') }>From<br/>{ fromCurrency }</button>
-          <button className="currency-button" id="selectToCurrency" onClick={ () => showList('to') }>To<br/>{ toCurrency }</button>
+        <div className="exchange-container">
+        <div className="amount">
+            <p>Recieve</p>
+            <input className="exchange-input"></input>
+          </div>
+          <div className="currency-button" id="selectToCurrency" onClick={ () => showList('to') }>To<br/>{ toCurrency }</div>
         </div>
 
         <div className="footer">
