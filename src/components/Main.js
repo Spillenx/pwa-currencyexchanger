@@ -1,9 +1,12 @@
 import { useState, useEffect } from 'react'
-import CurrencyList from './CurrencyList'
 import { fetchAPI } from '../api/fetchAPI'
 
 const Main = () => {
   const [currency, setCurrency] = useState(null)
+  const [fromCurrency, setFromCurrency] = useState('currency')
+  const [toCurrency, setToCurrency] =  useState('currency')
+
+  let exchangeDirection = ''
 
   useEffect(() => {
     if(currency === null) {
@@ -15,12 +18,37 @@ const Main = () => {
     }
   }, [currency])
 
-  function refreshCurrencies() {
+  const refreshCurrencies = () => {
     setCurrency(null)
   }
 
-  function showList() {
+  const selectedCurrency = (curr) => {
+    if(exchangeDirection === 'from') {
+      setFromCurrency(curr)
+    } else if(exchangeDirection === 'to') {
+      setToCurrency(curr)
+    } else {
+      showList()
+    }
+    showList()
+  }
+
+  const listCurrencies = () => {
+    const currencyKeys = Object.keys(currency.conversion_rates)
+
+    return (
+      <div className="currency-list">
+        { currencyKeys.map((curr, index) => 
+          <div className="list-item" key={index} onClick={() => selectedCurrency(curr) }> { curr } </div>
+        ) }
+      </div>
+    )
+  }
+
+  const showList = (direction) => {
     let list = document.getElementById("currencyList")
+    exchangeDirection = direction
+
     if (list.style.display === "none") {
       list.style.display = "block"
     } else {
@@ -34,7 +62,7 @@ const Main = () => {
 
       <div className="currency-list-content" id="currencyList">
         { currency &&
-          <CurrencyList currencies={ currency.conversion_rates } />
+          listCurrencies()
         }
       </div>
 
@@ -46,8 +74,8 @@ const Main = () => {
         </div>
 
         <div className="currency-select-container">
-          <button className="currency-button" id="fromCurrency" onClick={ showList }>From Currency</button>
-          <button className="currency-button" id="toCurrency" onClick={ showList }>To Currency</button>
+          <button className="currency-button" id="selectFromCurrency" onClick={ () => showList('from') }>From<br/>{ fromCurrency }</button>
+          <button className="currency-button" id="selectToCurrency" onClick={ () => showList('to') }>To<br/>{ toCurrency }</button>
         </div>
 
         <div className="footer">
