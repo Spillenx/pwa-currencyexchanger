@@ -7,8 +7,8 @@
 }
 
 body {
-  max-width: 600;
-  margin: 0 auto;
+  place-items: center;
+  background-color: teal;
 }
 
 .header {
@@ -16,10 +16,7 @@ body {
   background-color: teal;
   border-bottom: 1px black;
   justify-content: center;
-}
-
-.header-title {
-  display: flex;
+  width: 100vw;
 }
 
 .footer {
@@ -29,13 +26,14 @@ body {
   align-content: center;
   text-align: center;
   position: absolute;
-  margin: 5px; 
-  bottom: 5px; 
+  bottom: 5px;
+  width: 100vw; 
 }
 
 .main {
   display: grid;
-  background-color: white;
+  background-image: linear-gradient(black, teal);
+  background-size: cover;
   place-items: center;
   justify-content: center;
 }
@@ -44,13 +42,13 @@ body {
   display: flex;
   flex-direction: column;
   position: absolute;
-  width: 95%;
+  background-image: linear-gradient(black, teal);
+  background-size: cover;
+  width: 97vw;
   height: 90%;
-  background-color: teal;
   justify-content: center;
-  margin: 5px;
+  place-items: center;
   padding: 5px;
-  border-radius: 5px;
   z-index: 0;
 }
 
@@ -123,7 +121,7 @@ body {
 .currency-list-content {
   display: none;
   height: 60vw;
-  width: 99vw;
+  width: 90vw;
   overflow: scroll;
   background-color: #f9f9f9;
   color: black;

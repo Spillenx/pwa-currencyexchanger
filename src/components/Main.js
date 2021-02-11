@@ -21,6 +21,15 @@ const Main = () => {
     }
   }, [currency])
 
+  useEffect(() => {
+    if(currency) {
+      const rates = Object.values(currency.conversion_rates)
+
+    let result = fromAmount * rates[toIndex] / rates[fromIndex]
+    setToAmount(result.toFixed(2))
+    }
+  }, [fromAmount, currency, toIndex, fromIndex])
+
   const refreshCurrencies = () => {
     setCurrency(null)
   }
@@ -69,13 +78,6 @@ const Main = () => {
     }
   }
 
-  const performExchange = () => {
-    const rates = Object.values(currency.conversion_rates)
-
-    let result = fromAmount * rates[toIndex] / rates[fromIndex]
-    setToAmount(result.toFixed(2))
-  }
-
   return (
 
     <div className="main">
@@ -88,23 +90,23 @@ const Main = () => {
 
       <div className="main-container">
 
-        <div className="exchange-container">
-          <div className="amount">
-            <p>Give</p>
-            <input className="exchange-input" id="exIn" placeholder={ fromAmount } onChange={ () => setFromAmount(document.getElementById('exIn').value) } type="number" />
+        <div className="exchange-section">
+          <div className="exchange-container">
+            <div className="amount">
+              <p>Give</p>
+              <input className="exchange-input" id="exIn" placeholder={ fromAmount } onChange={ () => setFromAmount(document.getElementById('exIn').value) } type="number" />
+            </div>
+            <div className="currency-button" id="selectFromCurrency" onClick={ () => showList('from') }>From<br/>{ fromCurrency }</div>
           </div>
-          <div className="currency-button" id="selectFromCurrency" onClick={ () => showList('from') }>From<br/>{ fromCurrency }</div>
-        </div>
 
-        <div className="exchange-container">
-          <div className="amount">
-            <p>Recieve</p>
-            <div className="exchange-output">{ toAmount }</div>
+          <div className="exchange-container">
+            <div className="amount">
+              <p>Recieve</p>
+              <div className="exchange-output">{ toAmount }</div>
+            </div>
+            <div className="currency-button" id="selectToCurrency" onClick={ () => showList('to') }>To<br/>{ toCurrency }</div>
           </div>
-          <div className="currency-button" id="selectToCurrency" onClick={ () => showList('to') }>To<br/>{ toCurrency }</div>
         </div>
-
-        <div className="exchange-button" onClick={ performExchange }>Exchange</div>
 
         <div className="footer">
           { currency &&
