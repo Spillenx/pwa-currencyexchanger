@@ -65,7 +65,6 @@ const Main = () => {
   }
 
   const performExchange = () => {
-    setFromAmount(document.getElementById('ex-in').value)
     const rates = Object.values(currency.conversion_rates)
 
     let result = fromAmount * rates[toIndex] / rates[fromIndex]
@@ -87,7 +86,7 @@ const Main = () => {
         <div className="exchange-container">
           <div className="amount">
             <p>Give</p>
-            <input className="exchange-input" id="ex-in" placeholder={ fromAmount } type="number" />
+            <input className="exchange-input" id="ex-in" placeholder={ fromAmount } onChange={ () => setFromAmount(document.getElementById('ex-in').value)} type="number" />
           </div>
           <div className="currency-button" id="selectFromCurrency" onClick={ () => showList('from') }>From<br/>{ fromCurrency }</div>
         </div>
