@@ -1,8 +1,11 @@
-const CACHE = 'cache-v2';
+const CACHE = 'cache-v2'
+
 const urlsToCache = [
   '/index.html',
+  '/manifest.json',
   '/favicon.ico',
-  '/logo.png'
+  '/logo512.png',
+  '/maskable_icon.png'
 ]
 
 self.addEventListener('install', event => {
