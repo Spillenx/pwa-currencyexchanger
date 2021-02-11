@@ -53,7 +53,13 @@ const Main = () => {
   }
 
   const showList = (direction) => {
+
     let list = document.getElementById("currencyList")
+
+    if(exchangeDirection === '') {
+      list.style.display = "none"
+    }
+
     setExchangeDirection(direction)
 
     if (list.style.display === "none") {
@@ -85,7 +91,7 @@ const Main = () => {
         <div className="exchange-container">
           <div className="amount">
             <p>Give</p>
-            <input className="exchange-input" id="exIn" placeholder={ fromAmount } onChange={ () => setFromAmount(document.getElementById('exIn').value)} type="number" />
+            <input className="exchange-input" id="exIn" placeholder={ fromAmount } onChange={ () => setFromAmount(document.getElementById('exIn').value) } type="number" />
           </div>
           <div className="currency-button" id="selectFromCurrency" onClick={ () => showList('from') }>From<br/>{ fromCurrency }</div>
         </div>
