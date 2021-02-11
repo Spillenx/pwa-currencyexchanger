@@ -8,7 +8,7 @@ const Main = () => {
   const [fromIndex, setFromIndex] = useState(0)
   const [toIndex, setToIndex] = useState(0)
   const [fromAmount, setFromAmount] = useState(0)
-  const [toAmount, setToAMount] = useState(0)
+  const [toAmount, setToAmount] = useState(0)
 
   let exchangeDirection = ''
 
@@ -67,12 +67,9 @@ const Main = () => {
   const performExchange = () => {
     setFromAmount(document.getElementById('ex-in').value)
     const rates = Object.values(currency.conversion_rates)
-    console.log(rates[fromIndex])
-    console.log(rates[toIndex])
 
     let result = fromAmount * rates[toIndex] / rates[fromIndex]
-    setToAMount(result.toFixed(2))
-    console.log(result)
+    setToAmount(result.toFixed(2))
   }
 
   return (
@@ -103,13 +100,13 @@ const Main = () => {
           <div className="currency-button" id="selectToCurrency" onClick={ () => showList('to') }>To<br/>{ toCurrency }</div>
         </div>
 
-        <div className="exchange-button" onClick={performExchange}>Exchange</div>
+        <div className="exchange-button" onClick={ performExchange }>Exchange</div>
 
         <div className="footer">
           { currency &&
             <p>Latest update: { currency.time_last_update_utc }</p>
           }
-          <button className="update-currencies" onClick={ () => refreshCurrencies }>Update currencies</button>
+          <button className="exchange-button" onClick={ () => refreshCurrencies }>Update currencies</button>
         </div>
 
       </div>
