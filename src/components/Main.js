@@ -21,6 +21,15 @@ const Main = () => {
     }
   }, [currency])
 
+  useEffect(() => {
+    if(currency) {
+      const rates = Object.values(currency.conversion_rates)
+
+    let result = fromAmount * rates[toIndex] / rates[fromIndex]
+    setToAmount(result.toFixed(2))
+    }
+  }, [fromAmount, currency, toIndex, fromIndex])
+
   const refreshCurrencies = () => {
     setCurrency(null)
   }
@@ -68,15 +77,6 @@ const Main = () => {
       list.style.display = "none"
     }
   }
-
-  useEffect(() => {
-    if(currency) {
-      const rates = Object.values(currency.conversion_rates)
-
-    let result = fromAmount * rates[toIndex] / rates[fromIndex]
-    setToAmount(result.toFixed(2))
-    }
-  }, [fromAmount, currency, toIndex, fromIndex])
 
   return (
 
