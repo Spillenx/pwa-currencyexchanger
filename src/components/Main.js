@@ -9,8 +9,7 @@ const Main = () => {
   const [toIndex, setToIndex] = useState(0)
   const [fromAmount, setFromAmount] = useState(0)
   const [toAmount, setToAmount] = useState(0)
-
-  let exchangeDirection = ''
+  const [exchangeDirection, setExchangeDirection] = useState('')
 
   useEffect(() => {
     if(currency === null) {
@@ -54,8 +53,14 @@ const Main = () => {
   }
 
   const showList = (direction) => {
+
     let list = document.getElementById("currencyList")
-    exchangeDirection = direction
+
+    if(exchangeDirection === '') {
+      list.style.display = "none"
+    }
+
+    setExchangeDirection(direction)
 
     if (list.style.display === "none") {
       list.style.display = "block"
@@ -65,7 +70,6 @@ const Main = () => {
   }
 
   const performExchange = () => {
-    setFromAmount(document.getElementById('ex-in').value)
     const rates = Object.values(currency.conversion_rates)
 
     let result = fromAmount * rates[toIndex] / rates[fromIndex]
@@ -87,7 +91,7 @@ const Main = () => {
         <div className="exchange-container">
           <div className="amount">
             <p>Give</p>
-            <input className="exchange-input" id="ex-in" placeholder={ fromAmount } type="number" />
+            <input className="exchange-input" id="exIn" placeholder={ fromAmount } onChange={ () => setFromAmount(document.getElementById('exIn').value) } type="number" />
           </div>
           <div className="currency-button" id="selectFromCurrency" onClick={ () => showList('from') }>From<br/>{ fromCurrency }</div>
         </div>
