@@ -69,12 +69,14 @@ const Main = () => {
     }
   }
 
-  const performExchange = () => {
-    const rates = Object.values(currency.conversion_rates)
+  useEffect(() => {
+    if(currency) {
+      const rates = Object.values(currency.conversion_rates)
 
     let result = fromAmount * rates[toIndex] / rates[fromIndex]
     setToAmount(result.toFixed(2))
-  }
+    }
+  }, [fromAmount, currency, toIndex, fromIndex])
 
   return (
 
@@ -104,7 +106,7 @@ const Main = () => {
           <div className="currency-button" id="selectToCurrency" onClick={ () => showList('to') }>To<br/>{ toCurrency }</div>
         </div>
 
-        <div className="exchange-button" onClick={ performExchange }>Exchange</div>
+ 
 
         <div className="footer">
           { currency &&
