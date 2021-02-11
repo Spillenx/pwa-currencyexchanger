@@ -5,6 +5,10 @@ const Main = () => {
   const [currency, setCurrency] = useState(null)
   const [fromCurrency, setFromCurrency] = useState('currency')
   const [toCurrency, setToCurrency] =  useState('currency')
+  const [fromIndex, setFromIndex] = useState(0)
+  const [toIndex, setToIndex] = useState(0)
+  const [fromAmount, setFromAmount] = useState(0)
+  const [toAmount, setToAMount] = useState(0)
 
   let exchangeDirection = ''
 
@@ -22,14 +26,18 @@ const Main = () => {
     setCurrency(null)
   }
 
-  const selectedCurrency = (curr) => {
+  const selectedCurrency = (curr, index) => {
+
     if(exchangeDirection === 'from') {
+      setFromIndex(index)
       setFromCurrency(curr)
     } else if(exchangeDirection === 'to') {
+      setToIndex(index)
       setToCurrency(curr)
     } else {
       showList()
     }
+
     showList()
   }
 
@@ -39,7 +47,7 @@ const Main = () => {
     return (
       <div className="currency-list">
         { currencyKeys.map((curr, index) => 
-          <div className="list-item" key={ index } onClick={ () => selectedCurrency(curr) }> { curr } </div>
+          <div className="list-item" key={ index } onClick={ () => selectedCurrency(curr, index) }> { curr } </div>
         ) }
       </div>
     )
@@ -54,6 +62,17 @@ const Main = () => {
     } else {
       list.style.display = "none"
     }
+  }
+
+  const performExchange = () => {
+    setFromAmount(document.getElementById('ex-in').value)
+    const rates = Object.values(currency.conversion_rates)
+    console.log(rates[fromIndex])
+    console.log(rates[toIndex])
+
+    let result = fromAmount * rates[toIndex] / rates[fromIndex]
+    setToAMount(result.toFixed(2))
+    console.log(result)
   }
 
   return (
@@ -71,24 +90,26 @@ const Main = () => {
         <div className="exchange-container">
           <div className="amount">
             <p>Give</p>
-            <input className="exchange-input"></input>
+            <input className="exchange-input" id="ex-in" placeholder={ fromAmount } type="number" />
           </div>
           <div className="currency-button" id="selectFromCurrency" onClick={ () => showList('from') }>From<br/>{ fromCurrency }</div>
         </div>
 
         <div className="exchange-container">
-        <div className="amount">
+          <div className="amount">
             <p>Recieve</p>
-            <input className="exchange-input"></input>
+            <div className="exchange-output">{ toAmount }</div>
           </div>
           <div className="currency-button" id="selectToCurrency" onClick={ () => showList('to') }>To<br/>{ toCurrency }</div>
         </div>
+
+        <div className="exchange-button" onClick={performExchange}>Exchange</div>
 
         <div className="footer">
           { currency &&
             <p>Latest update: { currency.time_last_update_utc }</p>
           }
-          <button className="update-currencies" onClick={ refreshCurrencies }>Update currencies</button>
+          <button className="update-currencies" onClick={ () => refreshCurrencies }>Update currencies</button>
         </div>
 
       </div>
