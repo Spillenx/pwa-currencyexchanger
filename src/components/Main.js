@@ -25,7 +25,7 @@ const Main = () => {
     if(currency) {
       const rates = Object.values(currency.conversion_rates)
 
-    let result = fromAmount * rates[toIndex] / rates[fromIndex]
+    const result = fromAmount * rates[toIndex] / rates[fromIndex]
     setToAmount(result.toFixed(2))
     }
   }, [fromAmount, currency, toIndex, fromIndex])
@@ -78,6 +78,15 @@ const Main = () => {
     }
   }
 
+  const resetInputs = () => {
+    setFromAmount(0)
+    setToAmount(0)
+    setToIndex(0)
+    setFromIndex(0)
+    setFromCurrency('currency')
+    setToCurrency('currency')
+  }
+
   return (
 
     <div className="main">
@@ -94,7 +103,7 @@ const Main = () => {
           <div className="exchange-container">
             <div className="amount">
               <p>Give</p>
-              <input className="exchange-input" id="exIn" placeholder={ fromAmount } onChange={ () => setFromAmount(document.getElementById('exIn').value) } type="number" />
+              <input className="exchange-input" id="exIn" onChange={ () => setFromAmount(document.getElementById('exIn').value) } type="number" />
             </div>
             <div className="currency-button" id="selectFromCurrency" onClick={ () => showList('from') }>From<br/>{ fromCurrency }</div>
           </div>
@@ -107,6 +116,8 @@ const Main = () => {
             <div className="currency-button" id="selectToCurrency" onClick={ () => showList('to') }>To<br/>{ toCurrency }</div>
           </div>
         </div>
+
+        <div className="currency-button" onClick={ resetInputs }>Reset</div>
 
         <div className="footer">
           { currency &&

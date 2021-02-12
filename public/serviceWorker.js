@@ -1,4 +1,4 @@
-const CACHE = 'cache-v2'
+const CACHE = 'cache-v4'
 
 const urlsToCache = [
   '/index.html',
