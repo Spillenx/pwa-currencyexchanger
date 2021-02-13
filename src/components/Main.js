@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { fetchAPI } from '../api/fetchAPI'
+import RefreshIcon from '@material-ui/icons/Refresh';
 
 const Main = () => {
   const [currency, setCurrency] = useState(null)
@@ -12,6 +13,7 @@ const Main = () => {
   const [exchangeDirection, setExchangeDirection] = useState('')
 
   useEffect(() => {
+    console.log('fetch')
     if(currency === null) {
       const fetchData = async() => {
         const result = await fetchAPI()
@@ -105,7 +107,7 @@ const Main = () => {
               <p>Give</p>
               <input className="exchange-input" id="exIn" onChange={ () => setFromAmount(document.getElementById('exIn').value) } type="number" />
             </div>
-            <div className="currency-button" id="selectFromCurrency" onClick={ () => showList('from') }>From<br/>{ fromCurrency }</div>
+            <div className="currency-button" id="selectFromCurrency" placeholder={ fromAmount } onClick={ () => showList('from') }>From<br/>{ fromCurrency }</div>
           </div>
 
           <div className="exchange-container">
@@ -117,13 +119,15 @@ const Main = () => {
           </div>
         </div>
 
+        
         <div className="currency-button" onClick={ resetInputs }>Reset</div>
+       
 
         <div className="footer">
           { currency &&
             <p>Latest update: { currency.time_last_update_utc }</p>
           }
-          <button className="exchange-button" onClick={ () => refreshCurrencies }>Update currencies</button>
+          <div classname="refresh-button" onClick={ refreshCurrencies }><RefreshIcon /></div>
         </div>
 
       </div>
