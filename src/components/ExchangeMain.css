@@ -42,9 +42,11 @@
 
 .exchange-button {
   color: white;
+  min-width: 50%;
   text-align: center;
   border-radius: 5px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 16px;
+  border: none;
 }
 
 .exchange-button p {
@@ -55,49 +57,13 @@
   background-color: #83d8c3;
 }
 
-.currency-button {
+.reset-button {
   color: white;
   min-width: 50%;
   text-align: center;
   padding: 16px;
   font-size: 16px;
   border: none;
-}
-
-.currency-list-content {
-  display: none;
-  height: 60vh;
-  width: 90vw;
-  overflow: scroll;
-  background-color: #f9f9f9;
-  color: black;
-  padding: 12px 16px;
-  border-radius: 5px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-.currency-list-content:hover .currency-list-content {
-  display: block;
-}
-
-.currency-button:hover {
-  background-color: #83d8c3;
-}
-
-.currency-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-}
-
-.list-item {
-  margin: 5px;
-  width: 20%;
-}
-
-.list-item:hover {
-  background-color: #f1f1f1;
 }
 
 .refresh-button {
