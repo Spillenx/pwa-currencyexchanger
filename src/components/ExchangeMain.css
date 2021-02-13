@@ -1,0 +1,106 @@
+.exchange-section {
+  
+}
+
+.exchange-container {
+  display: flex;
+  margin: 5px;
+  background-color: #63d4b2;
+  justify-content: center;
+  border-radius: 5px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.amount {
+  min-width: 50%;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+.amount p {
+  color: white;
+  text-align: center;
+}
+
+.exchange-input {
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  width: 90%;
+  text-align: center;
+  font-size: 16px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.exchange-output {
+  margin: 5px;
+  border: none;
+  width: 90%;
+  text-align: center;
+}
+
+.exchange-button {
+  color: white;
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.exchange-button p {
+
+}
+
+.exchange-button:active {
+  background-color: #83d8c3;
+}
+
+.currency-button {
+  color: white;
+  min-width: 50%;
+  text-align: center;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+.currency-list-content {
+  display: none;
+  height: 60vh;
+  width: 90vw;
+  overflow: scroll;
+  background-color: #f9f9f9;
+  color: black;
+  padding: 12px 16px;
+  border-radius: 5px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.currency-list-content:hover .currency-list-content {
+  display: block;
+}
+
+.currency-button:hover {
+  background-color: #83d8c3;
+}
+
+.currency-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.list-item {
+  margin: 5px;
+  width: 20%;
+}
+
+.list-item:hover {
+  background-color: #f1f1f1;
+}
+
+.refresh-button {
+  margin: 5px;
+  padding: 5px;
+}
