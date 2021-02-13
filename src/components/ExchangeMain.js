@@ -1,5 +1,6 @@
 import './ExchangeMain.css'
 import './Footer.css'
+import './CurrencyList.css'
 import { useState, useEffect } from 'react'
 import { fetchAPI } from '../api/fetchAPI'
 import RefreshIcon from '@material-ui/icons/Refresh'
@@ -107,7 +108,7 @@ const ExchangeMain = () => {
             <p>Give</p>
             <input className="exchange-input" id="exIn" onChange={ () => setFromAmount(document.getElementById('exIn').value) } type="number" />
           </div>
-          <div className="currency-button" id="selectFromCurrency" placeholder={ fromAmount } onClick={ () => showList('from') }>From<br />{ fromCurrency }</div>
+          <div className="exchange-button" id="selectFromCurrency" placeholder={ fromAmount } onClick={ () => showList('from') }>From<br />{ fromCurrency }</div>
         </div>
 
         <div className="exchange-container">
@@ -115,11 +116,11 @@ const ExchangeMain = () => {
             <p>Recieve</p>
             <div className="exchange-output">{ toAmount }</div>
           </div>
-          <div className="currency-button" id="selectToCurrency" onClick={ () => showList('to') }>To<br/>{ toCurrency }</div>
+          <div className="exchange-button" id="selectToCurrency" onClick={ () => showList('to') }>To<br/>{ toCurrency }</div>
         </div>
       </div>
 
-      <div className="currency-button" onClick={ resetInputs }>Reset</div>
+      <div className="reset-button" onClick={ resetInputs }>Reset</div>
        
 
       <div className="footer">

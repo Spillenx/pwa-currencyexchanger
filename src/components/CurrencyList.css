@@ -1,0 +1,38 @@
+.currency-list-content {
+  position: absolute;
+  display: none;
+  height: 60vh;
+  width: 90vw;
+  top: 15vw;
+  right: 5vw;
+  overflow: scroll;
+  background-color: #f9f9f9;
+  color: black;
+  padding: 12px 16px;
+  border-radius: 5px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.currency-list-content:hover .currency-list-content {
+  display: block;
+}
+
+.currency-button:hover {
+  background-color: #83d8c3;
+}
+
+.currency-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.list-item {
+  margin: 5px;
+  width: 20%;
+}
+
+.list-item:hover {
+  background-color: #f1f1f1;
+}
