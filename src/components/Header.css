@@ -1,0 +1,8 @@
+.header {
+  display: flex;
+  background-color: teal;
+  justify-content: center;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+}
