@@ -6,8 +6,3 @@
   color: rgb(25, 25, 25);
   box-sizing: border-box;
 }
-
-body {
-  place-items: center;
-  background-color: teal;
-}

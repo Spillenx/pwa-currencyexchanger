@@ -1,7 +1,11 @@
 const WeatherMain = () => {
   return (
-    <div>
-      <p>Weather Main</p>
+    <div className="weather-section">
+
+      <div className="weather-container">
+        <p>Weather Main</p>
+      </div>
+      
     </div>
    )
 }

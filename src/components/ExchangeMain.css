@@ -1,18 +1,26 @@
+.exchange-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  max-width: 960px;
+}
+
 .exchange-section {
-  
+  display: grid;
+  justify-content: center;
 }
 
 .exchange-container {
   display: flex;
-  margin: 5px;
+  margin-bottom: 5px;
+  width: 100%;
   background-color: #63d4b2;
-  justify-content: center;
   border-radius: 5px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 
 .amount {
-  min-width: 50%;
+  width: 50%;
   padding: 16px;
   font-size: 16px;
   border: none;
@@ -36,13 +44,12 @@
 .exchange-output {
   margin: 5px;
   border: none;
-  width: 90%;
   text-align: center;
 }
 
 .exchange-button {
   color: white;
-  min-width: 50%;
+  width: 50%;
   text-align: center;
   border-radius: 5px;
   padding: 16px;
@@ -57,16 +64,22 @@
   background-color: #83d8c3;
 }
 
+.button-container {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
 .reset-button {
   color: white;
-  min-width: 50%;
+  max-width: 20vw;
   text-align: center;
   padding: 16px;
+  margin: auto;
   font-size: 16px;
   border: none;
 }
 
-.refresh-button {
-  margin: 5px;
-  padding: 5px;
+.reset-button:active {
+  background-color: #83d8c3;
 }

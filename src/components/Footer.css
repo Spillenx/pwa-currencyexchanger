@@ -1,9 +1,21 @@
 .footer {
+  bottom: 0px;
+}
+
+.footer-container {
   display: flex;
   flex-direction: column;
-  font-size: 10px;
-  position: absolute;
   place-items: center;
-  max-width: 100vw; 
-  bottom: 0px; 
+}
+
+.footer-text {
+  font-size: 10px;
+}
+
+.refresh-button {
+  padding: 5px;
+}
+
+.refresh-button:active {
+  background-color: #83d8c3;
 }
