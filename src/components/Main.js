@@ -7,16 +7,13 @@ const Main = () => {
   
   return (
 
-    <div className="main">
+    <div className="Main">
 
-      <div className="main-container">
+      <Header />
+      <ExchangeMain />
 
-        <Header />
-        <WeatherMain />
-        <ExchangeMain />
-
-       </div> 
     </div>
+
    )
 }
  

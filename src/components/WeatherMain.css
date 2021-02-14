@@ -1,3 +1,9 @@
+.weather-section {
+  display: flex;
+  flex-direction: column;
+  max-width: 960px;
+}
+
 .weather-container {
   display: flex;
   margin: 5px;

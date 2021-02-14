@@ -2,7 +2,7 @@ import './ExchangeMain.css'
 import './Footer.css'
 import './CurrencyList.css'
 import { useState, useEffect } from 'react'
-import { fetchAPI } from '../api/fetchAPI'
+import { fetchCurrencyAPI } from '../api/fetchCurrencyAPI'
 import RefreshIcon from '@material-ui/icons/Refresh'
 
 const ExchangeMain = () => {
@@ -20,7 +20,7 @@ const ExchangeMain = () => {
     if(currency === null) {
       console.log('fetch')
       const fetchData = async() => {
-        const result = await fetchAPI()
+        const result = await fetchCurrencyAPI()
         setCurrency(result)
       }
       fetchData()
@@ -94,7 +94,7 @@ const ExchangeMain = () => {
   }
 
   return ( 
-    <div>
+    <div className="exchange-wrapper">
 
       <div className="currency-list-content" id="currencyList">
         { currency &&
@@ -120,15 +120,19 @@ const ExchangeMain = () => {
         </div>
       </div>
 
-      <div className="reset-button" onClick={ resetInputs }>Reset</div>
-       
-
-      <div className="footer">
-        { currency &&
-          <p>Latest update: { currency.time_last_update_utc }</p>
-        }
-        <div className="refresh-button" onClick={ refreshCurrencies }><RefreshIcon /></div>
+      <div className="button-container">
+        <div className="reset-button" onClick={ resetInputs }>Reset</div>
       </div>
+ 
+      <div className="footer">
+        <div className="footer-container"> 
+          { currency &&
+            <p className="footer-text">Latest update: { currency.time_last_update_utc }</p>
+          }
+          <div className="refresh-button" onClick={ refreshCurrencies }><RefreshIcon /></div>
+        </div>
+      </div>
+
     </div>
    )
 }
