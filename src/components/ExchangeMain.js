@@ -2,11 +2,9 @@ import './ExchangeMain.css'
 import './Footer.css'
 import './CurrencyList.css'
 import { useState, useEffect } from 'react'
-import { fetchCurrencyAPI } from '../api/fetchCurrencyAPI'
 
-const ExchangeMain = () => {
+const ExchangeMain = ( {currency} ) => {
 
-  const [currency, setCurrency] = useState(null)
   const [fromCurrency, setFromCurrency] = useState('')
   const [toCurrency, setToCurrency] =  useState('')
   const [fromIndex, setFromIndex] = useState(0)
@@ -14,17 +12,6 @@ const ExchangeMain = () => {
   const [fromAmount, setFromAmount] = useState(0)
   const [toAmount, setToAmount] = useState(0)
   const [exchangeDirection, setExchangeDirection] = useState('')
-
-  useEffect(() => {
-    if(currency === null) {
-      console.log('fetch')
-      const fetchData = async() => {
-        const result = await fetchCurrencyAPI()
-        setCurrency(result)
-      }
-      fetchData()
-    }
-  }, [currency])
 
   useEffect(() => {
     if(currency) {
