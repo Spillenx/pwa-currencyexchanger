@@ -1,5 +1,6 @@
 import Main from "./components/Main"
-function App() {
+
+const App = () => {
   return (
     <div className="app">
       <Main />
