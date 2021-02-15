@@ -73,6 +73,7 @@ const ExchangeMain = ( {currency} ) => {
     setFromIndex(0)
     setFromCurrency('')
     setToCurrency('')
+    document.getElementById('exIn').value = ''
   }
 
   return ( 
@@ -88,9 +89,9 @@ const ExchangeMain = ( {currency} ) => {
         <div className="exchange-container">
           <div className="amount">
             <p>Give</p>
-            <input className="exchange-input" placeholder={ fromAmount } onChange={ e => setFromAmount(e.target.value) } type="number" />
+            <input className="exchange-input" id="exIn" placeholder={ fromAmount } onChange={ e => setFromAmount(e.target.value) } type="number" />
           </div>
-          <div className="exchange-button" onClick={ () => showList('from') }>From<br />{ fromCurrency }</div>
+          <div className="exchange-button" onClick={ () => showList('from') }>From<br/>{ fromCurrency }</div>
         </div>
 
         <div className="exchange-container">
