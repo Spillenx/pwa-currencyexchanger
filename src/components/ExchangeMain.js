@@ -51,7 +51,7 @@ const ExchangeMain = ( {currency} ) => {
 
   const showList = (direction) => {
 
-    let list = document.getElementById("currencyList")
+    const list = document.getElementById("currencyList")
 
     if(exchangeDirection === '') {
       list.style.display = "none"
@@ -73,6 +73,7 @@ const ExchangeMain = ( {currency} ) => {
     setFromIndex(0)
     setFromCurrency('')
     setToCurrency('')
+    document.getElementById('exIn').value = ''
   }
 
   return ( 
@@ -88,9 +89,9 @@ const ExchangeMain = ( {currency} ) => {
         <div className="exchange-container">
           <div className="amount">
             <p>Give</p>
-            <input className="exchange-input" placeholder={ fromAmount } id="exIn" onChange={ e => setFromAmount(e.target.value) } type="number" />
+            <input className="exchange-input" id="exIn" placeholder={ fromAmount } onChange={ e => setFromAmount(e.target.value) } type="number" />
           </div>
-          <div className="exchange-button" id="selectFromCurrency" onClick={ () => showList('from') }>From<br />{ fromCurrency }</div>
+          <div className="exchange-button" onClick={ () => showList('from') }>From<br/>{ fromCurrency }</div>
         </div>
 
         <div className="exchange-container">
@@ -98,7 +99,7 @@ const ExchangeMain = ( {currency} ) => {
             <p>Recieve</p>
             <div className="exchange-output">{ toAmount }</div>
           </div>
-          <div className="exchange-button" id="selectToCurrency" onClick={ () => showList('to') }>To<br/>{ toCurrency }</div>
+          <div className="exchange-button" onClick={ () => showList('to') }>To<br/>{ toCurrency }</div>
         </div>
       </div>
 

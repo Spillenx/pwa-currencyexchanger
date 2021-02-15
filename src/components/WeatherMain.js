@@ -1,6 +1,6 @@
 const WeatherMain = () => {
   return (
-    <div className="weather-section">
+    <div className="weather-wrapper">
 
       <div className="weather-container">
         <p>Weather Main</p>
