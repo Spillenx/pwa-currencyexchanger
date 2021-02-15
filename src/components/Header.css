@@ -1,8 +1,8 @@
 .header {
-  display: flex;
-  background-color: teal;
-  justify-content: center;
-  width: 100vw;
+  height: 45px;
   position: absolute;
+  background-color: teal;
+  text-align: center;
+  width: 100vw;
   top: 0;
 }
