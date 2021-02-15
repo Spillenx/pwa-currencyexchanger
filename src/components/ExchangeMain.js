@@ -90,7 +90,7 @@ const ExchangeMain = ( {currency} ) => {
             <p>Give</p>
             <input className="exchange-input" placeholder={ fromAmount } onChange={ e => setFromAmount(e.target.value) } type="number" />
           </div>
-          <div className="exchange-button" id="selectFromCurrency" onClick={ () => showList('from') }>From<br />{ fromCurrency }</div>
+          <div className="exchange-button" onClick={ () => showList('from') }>From<br />{ fromCurrency }</div>
         </div>
 
         <div className="exchange-container">
@@ -98,7 +98,7 @@ const ExchangeMain = ( {currency} ) => {
             <p>Recieve</p>
             <div className="exchange-output">{ toAmount }</div>
           </div>
-          <div className="exchange-button" id="selectToCurrency" onClick={ () => showList('to') }>To<br/>{ toCurrency }</div>
+          <div className="exchange-button" onClick={ () => showList('to') }>To<br/>{ toCurrency }</div>
         </div>
       </div>
 
