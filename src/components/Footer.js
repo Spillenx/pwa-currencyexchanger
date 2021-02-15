@@ -2,7 +2,14 @@ import React from 'react'
 import RefreshIcon from '@material-ui/icons/Refresh'
 
 function Footer() {
-  return (
+
+  /* 
+  const refreshCurrencies = () => {
+    setCurrency(null)
+  }
+  */
+  
+ return (
     <div className="footer">
       <div className="footer-container">
       {/*     

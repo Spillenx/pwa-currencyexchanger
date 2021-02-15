@@ -3,8 +3,6 @@ import './Footer.css'
 import './CurrencyList.css'
 import { useState, useEffect } from 'react'
 import { fetchCurrencyAPI } from '../api/fetchCurrencyAPI'
-import RefreshIcon from '@material-ui/icons/Refresh'
-import Footer from './Footer'
 
 const ExchangeMain = () => {
 
@@ -36,10 +34,6 @@ const ExchangeMain = () => {
     setToAmount(result.toFixed(2))
     }
   }, [fromAmount, currency, toIndex, fromIndex])
-
-  const refreshCurrencies = () => {
-    setCurrency(null)
-  }
 
   const selectedCurrency = (curr, index) => {
 
