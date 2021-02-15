@@ -1,17 +1,16 @@
 import './Main.css'
 import Header from "./Header"
 import ExchangeMain from "./ExchangeMain"
-import WeatherMain from "./WeatherMain"
+import Footer from './Footer'
 
 const Main = () => {
   
   return (
 
-    <div className="Main">
-
+    <div className="main">
       <Header />
       <ExchangeMain />
-
+      <Footer />
     </div>
 
    )
