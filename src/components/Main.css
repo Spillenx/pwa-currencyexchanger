@@ -1,12 +1,8 @@
-.Main {
+.main {  
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  position: absolute;
-  width: 100vw;
-  height: 100vh;
-  margin: auto;
+  justify-content: center;
   background-image: linear-gradient(black, teal);
   background-size: cover;
-  justify-content: center;
-  z-index: 0;
 }

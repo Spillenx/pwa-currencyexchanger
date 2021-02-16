@@ -1,8 +1,8 @@
 import Main from "./components/Main"
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
+    <div className="app">
       <Main />
     </div>
   )
