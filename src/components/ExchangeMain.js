@@ -66,7 +66,7 @@ const ExchangeMain = ( {currency} ) => {
     }
   }
 
-  const resetInputs = () => {
+  const resetStates = () => {
     setFromAmount(0)
     setToAmount(0)
     setToIndex(0)
@@ -104,7 +104,7 @@ const ExchangeMain = ( {currency} ) => {
       </div>
 
       <div className="button-container">
-        <div className="reset-button" onClick={ resetInputs }>Reset</div>
+        <div className="reset-button" onClick={ resetStates }>Reset</div>
       </div>
 
     </div>
