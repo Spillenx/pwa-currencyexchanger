@@ -11,12 +11,17 @@ const Main = () => {
 
   useEffect(() => {
     if(currency === null) {
-      console.log('fetch')
-      const fetchData = async() => {
-        const result = await fetchCurrencyAPI()
-        setCurrency(result)
+      try{
+        console.log('fetch')
+        const fetchData = async() => {
+          const result = await fetchCurrencyAPI()
+          setCurrency(result)
+        }
+        fetchData()
+      } catch {
+        console.log('Error')
       }
-      fetchData()
+
     }
   }, [currency])
   
