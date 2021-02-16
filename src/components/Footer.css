@@ -14,6 +14,7 @@
 
 .refresh-button {
   padding: 5px;
+  border-radius: 90px;
 }
 
 .refresh-button:active {
