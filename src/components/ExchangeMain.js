@@ -59,11 +59,9 @@ const ExchangeMain = ( {currency} ) => {
 
     setExchangeDirection(direction)
 
-    if (list.style.display === "none") {
-      list.style.display = "block"
-    } else {
-      list.style.display = "none"
-    }
+    list.style.display === "none"
+      ? list.style.display = "block"
+      : list.style.display = "none"
   }
 
   const resetStates = () => {

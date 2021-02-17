@@ -18,8 +18,8 @@ const Main = () => {
           setCurrency(result)
         }
         fetchData()
-      } catch {
-        console.log('Error')
+      } catch (e) {
+        console.log('Error: ', e)
       }
 
     }
