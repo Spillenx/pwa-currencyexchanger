@@ -21,7 +21,6 @@ const App = () => {
       } catch (e) {
         console.log('Error: ', e)
       }
-
     }
   }, [currency])
 
