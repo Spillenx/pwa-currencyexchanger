@@ -56,8 +56,8 @@
   border: none;
 }
 
-.exchange-button p {
-
+.exchange-button:hover {
+  cursor: pointer;
 }
 
 .exchange-button:active {
@@ -80,6 +80,10 @@
   border: none;
   border-radius: 5px;
   padding: 5px;
+}
+
+.reset-button:hover {
+  cursor: pointer;
 }
 
 .reset-button:active {

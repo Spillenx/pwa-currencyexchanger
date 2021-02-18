@@ -20,3 +20,7 @@
 .refresh-button:active {
   background-color: #83d8c3;
 }
+
+.refresh-button:hover {
+  cursor: pointer;
+}
