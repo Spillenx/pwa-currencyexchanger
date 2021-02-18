@@ -26,11 +26,9 @@ const App = () => {
 
   return (
     <div className="app">
-      <div className="main-container">
         <Header />
         <ExchangeMain currency={currency}/>
         <Footer currency={currency}/>
-      </div>
     </div>
   )
 }
