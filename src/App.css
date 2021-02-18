@@ -1,7 +1,8 @@
 .app {
   height: 100vh;
   width: 100vw;
-  background-color: teal;
+  background-image: linear-gradient(black, teal);
+  background-size: cover;
   display: grid;
   place-items: center;
 }
@@ -12,6 +13,4 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-image: linear-gradient(black, teal);
-  background-size: cover;
 }
