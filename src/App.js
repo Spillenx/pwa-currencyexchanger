@@ -1,3 +1,4 @@
+import React from 'react'
 import { useState, useEffect } from 'react'
 import { fetchCurrencyAPI } from './api/fetchCurrencyAPI'
 import Header from "./components/Header"
@@ -26,9 +27,9 @@ const App = () => {
 
   return (
     <AppWrapper>
-        <Header />
-        <ExchangeMain currency={currency}/>
-        <Footer currency={currency}/>
+      <Header />
+      <ExchangeMain currency={currency}/>
+      <Footer currency={currency}/>
     </AppWrapper>
   )
 }
