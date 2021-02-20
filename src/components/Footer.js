@@ -1,4 +1,5 @@
 import React from 'react'
+import styled from 'styled-components'
 import RefreshIcon from '@material-ui/icons/Refresh'
 
 const Footer = ({ currency }) => {
@@ -6,15 +7,34 @@ const Footer = ({ currency }) => {
   const refreshCurrencies = () => {}
 
   return (
-    <div className="footer">
-      <div className="footer-container">   
+    <FooterWrapper>
         { currency &&
-          <p className="footer-text">Latest currency update: { currency.time_last_update_utc }</p>
+          <p>Latest currency update: { currency.time_last_update_utc }</p>
         }
-        <div className="refresh-button" onClick={ refreshCurrencies }><RefreshIcon /></div>
-      </div>  
-    </div>
+        <RefreshButton onClick={ refreshCurrencies }>
+          <RefreshIcon />
+        </RefreshButton> 
+    </FooterWrapper>
   )
 }
 
 export default Footer
+
+const FooterWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  font-size: 10px;
+  bottom: 0;
+`
+
+const RefreshButton = styled.div`
+  padding: 5px;
+  border-radius: 90px;
+  :hover {
+    cursor: pointer;
+  }
+  :active {
+    background-color: #83d8c3;
+  } 
+`

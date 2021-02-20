@@ -1,11 +1,20 @@
-import './Header.css'
+import styled from 'styled-components'
 
 const Header = () => {
   return ( 
-    <div className="header">
+    <HeaderWrapper>
       <h1 className="header-title">Currency Converter</h1>
-    </div>
+    </HeaderWrapper>
    )
 }
  
 export default Header
+
+const HeaderWrapper = styled.div`
+  height: 45px;
+  position: absolute;
+  background-color: teal;
+  text-align: center;
+  width: 100vw;
+  top: 0;
+` 

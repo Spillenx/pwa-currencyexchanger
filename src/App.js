@@ -3,7 +3,7 @@ import { fetchCurrencyAPI } from './api/fetchCurrencyAPI'
 import Header from "./components/Header"
 import ExchangeMain from "./components/ExchangeMain"
 import Footer from './components/Footer'
-import './App.css'
+import styled from 'styled-components'
 
 const App = () => {
 
@@ -25,12 +25,23 @@ const App = () => {
   }, [currency])
 
   return (
-    <div className="app">
+    <AppWrapper>
         <Header />
         <ExchangeMain currency={currency}/>
         <Footer currency={currency}/>
-    </div>
+    </AppWrapper>
   )
 }
 
 export default App
+
+const AppWrapper = styled.div`
+  min-height: 100vh;
+  width: 100vw;
+  background: black;
+  background: linear-gradient(rgba(0,0,0), rgba(0,128,128));
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`
