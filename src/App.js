@@ -25,11 +25,16 @@ const App = () => {
     }
   }, [currency])
 
+  const resetCurrencies = () => {
+    console.log('New fetch!')
+    setCurrency(null)
+  }
+
   return (
     <AppWrapper>
       <Header />
       <ExchangeMain currency={currency}/>
-      <Footer currency={currency}/>
+      <Footer currency={currency} resetCurrencies={resetCurrencies} />
     </AppWrapper>
   )
 }

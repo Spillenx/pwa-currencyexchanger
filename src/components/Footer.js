@@ -2,16 +2,14 @@ import React from 'react'
 import styled from 'styled-components'
 import RefreshIcon from '@material-ui/icons/Refresh'
 
-const Footer = ({ currency }) => {
-
-  const refreshCurrencies = () => {}
+const Footer = ({ currency, resetCurrencies }) => {
 
   return (
     <FooterWrapper>
         { currency &&
           <p>Latest currency update: { currency.time_last_update_utc }</p>
         }
-        <RefreshButton onClick={ refreshCurrencies }>
+        <RefreshButton onClick={ resetCurrencies }>
           <RefreshIcon />
         </RefreshButton> 
     </FooterWrapper>
