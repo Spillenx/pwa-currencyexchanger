@@ -13,7 +13,6 @@ const App = () => {
   useEffect(() => {
     if(currency === null) {
       try{
-        console.log('fetch')
         const fetchData = async() => {
           const result = await fetchCurrencyAPI()
           setCurrency(result)
@@ -26,7 +25,6 @@ const App = () => {
   }, [currency])
 
   const resetCurrencies = () => {
-    console.log('New fetch!')
     setCurrency(null)
   }
 
@@ -34,7 +32,7 @@ const App = () => {
     <AppWrapper>
       <Header />
       <ExchangeMain currency={currency}/>
-      <Footer currency={currency} resetCurrencies={resetCurrencies} />
+      <Footer lastUpdate={currency} resetCurrencies={resetCurrencies} />
     </AppWrapper>
   )
 }
