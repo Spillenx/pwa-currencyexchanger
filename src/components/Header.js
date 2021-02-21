@@ -1,9 +1,10 @@
+import React from 'react'
 import styled from 'styled-components'
 
 const Header = () => {
   return ( 
     <HeaderWrapper>
-      <h1 className="header-title">Currency Converter</h1>
+      <h1>Currency Converter</h1>
     </HeaderWrapper>
    )
 }

@@ -1,3 +1,4 @@
+import React from 'react'
 import { useState, useEffect } from 'react'
 import { fetchCurrencyAPI } from './api/fetchCurrencyAPI'
 import Header from "./components/Header"
@@ -12,7 +13,6 @@ const App = () => {
   useEffect(() => {
     if(currency === null) {
       try{
-        console.log('fetch')
         const fetchData = async() => {
           const result = await fetchCurrencyAPI()
           setCurrency(result)
@@ -24,11 +24,15 @@ const App = () => {
     }
   }, [currency])
 
+  const resetCurrencies = () => {
+    setCurrency(null)
+  }
+
   return (
     <AppWrapper>
-        <Header />
-        <ExchangeMain currency={currency}/>
-        <Footer currency={currency}/>
+      <Header />
+      <ExchangeMain currency={currency}/>
+      <Footer lastUpdate={currency} resetCurrencies={resetCurrencies} />
     </AppWrapper>
   )
 }
