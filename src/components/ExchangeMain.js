@@ -4,8 +4,8 @@ import { useState, useEffect } from 'react'
 
 const ExchangeMain = ( {currency} ) => {
 
-  const [fromCurrency, setFromCurrency] = useState('')
-  const [toCurrency, setToCurrency] =  useState('')
+  const [fromCurrency, setFromCurrency] = useState('FROM')
+  const [toCurrency, setToCurrency] =  useState('TO')
   const [fromIndex, setFromIndex] = useState(0)
   const [toIndex, setToIndex] = useState(0)
   const [fromAmount, setFromAmount] = useState(0)
@@ -68,8 +68,8 @@ const ExchangeMain = ( {currency} ) => {
     setToAmount(0)
     setToIndex(0)
     setFromIndex(0)
-    setFromCurrency('')
-    setToCurrency('')
+    setFromCurrency('FROM')
+    setToCurrency('TO')
     document.getElementById('amountIn').value = ''
   }
 
@@ -88,7 +88,9 @@ const ExchangeMain = ( {currency} ) => {
             <p>Give</p>
             <ExchangeInput id="amountIn" placeholder={ fromAmount } onChange={ e => setFromAmount(e.target.value) } type="number" />
           </Amount>
-          <ExchangeButton onClick={ () => showList('from') }>From<br/>{ fromCurrency }</ExchangeButton>
+          <ExchangeButton onClick={ () => showList('from') }>
+            <ExBtnContent>{ fromCurrency }</ExBtnContent>
+          </ExchangeButton>
         </ExchangeContainer>
 
         <ExchangeContainer>
@@ -96,7 +98,9 @@ const ExchangeMain = ( {currency} ) => {
             <p>Recieve</p>
             <ExchangeOutput>{ toAmount }</ExchangeOutput>
           </Amount>
-          <ExchangeButton onClick={ () => showList('to') }>To<br/>{ toCurrency }</ExchangeButton>
+          <ExchangeButton onClick={ () => showList('to') }>
+            <ExBtnContent>{ toCurrency }</ExBtnContent>
+          </ExchangeButton>
         </ExchangeContainer>
       </ExchangeSection>
 
@@ -119,15 +123,17 @@ const ExchangeWrapper = styled.div`
 `
 
 const ExchangeSection = styled.div`
-  display: grid;
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
   justify-content: center;
 `
 
 const ExchangeContainer = styled.div`
   display: flex;
+  background-color: #63d4b2;
   margin-bottom: 5px;
   width: 100%;
-  background-color: #63d4b2;
   border-radius: 5px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 `
@@ -150,7 +156,8 @@ const ExchangeOutput = styled.div`
 `
 
 const Amount = styled.div`
-  width: 50%;
+  width: 150px;
+  height: 80px;
   padding: 16px;
   font-size: 16px;
   border: none;
@@ -161,12 +168,18 @@ const Amount = styled.div`
 `
 
 const ExchangeButton = styled.div`
-  color: white;
-  width: 50%;
-  text-align: center;
+  display: flex;
+  width: 150px;
+  height: 80px;
+  justify-content: center;
+  place-items: center;
   border-radius: 5px;
   padding: 16px;
   border: none;
+`
+
+const ExBtnContent = styled.div`
+  color: white;
 `
 
 const ButtonContainer = styled.div`
