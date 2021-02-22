@@ -14,12 +14,16 @@ const App = () => {
     if(currency === null) {
       try{
         const fetchData = async() => {
-          const result = await fetchCurrencyAPI()
-          setCurrency(result)
+          await fetchCurrencyAPI()
+            .then(res => {
+              console.log(res)
+              setCurrency(res)
+            })
         }
         fetchData()
       } catch (e) {
         console.log('Error: ', e)
+        return
       }
     }
   }, [currency])
