@@ -14,7 +14,7 @@ const ExchangeMain = ( {currency} ) => {
 
   useEffect(() => {
     if(currency) {
-      const rates = Object.values(currency.conversion_rates)
+      const rates = Object.values(currency.conversion_rates || [])
 
     const result = fromAmount * rates[toIndex] / rates[fromIndex]
     setToAmount(result.toFixed(2))
@@ -37,13 +37,15 @@ const ExchangeMain = ( {currency} ) => {
   }
 
   const listCurrencies = () => {
-    const currencyKeys = Object.keys(currency.conversion_rates)
+    
+    const currencyKeys = Object.keys(currency.conversion_rates || [])
 
     return (
       <CurrencyList>
-        { currencyKeys.map((curr, index) => 
+        {currencyKeys.length > 0 && currencyKeys.map((curr, index) => 
           <ListItem key={ index } onClick={ () => selectedCurrency(curr, index) }> { curr } </ListItem>
         ) }
+        {currencyKeys.length === 0 && <ListItem onClick={ showList }>No keys</ListItem>}
       </CurrencyList>
     )
   }
