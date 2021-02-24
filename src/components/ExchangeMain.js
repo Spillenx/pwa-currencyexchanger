@@ -42,10 +42,13 @@ const ExchangeMain = ( {currency} ) => {
 
     return (
       <CurrencyList>
-        {currencyKeys.length > 0 && currencyKeys.map((curr, index) => 
+        { currencyKeys.length > 0 && 
+          currencyKeys.map((curr, index) => 
           <ListItem key={ index } onClick={ () => selectedCurrency(curr, index) }> { curr } </ListItem>
         ) }
-        {currencyKeys.length === 0 && <ListItem onClick={ showList }>No conversion rates available at the moment. Please try again later.</ListItem>}
+        { currencyKeys.length === 0 && 
+          <ListItem onClick={ showList }>No conversion rates available at the moment. Please try again later.</ListItem> 
+        }
       </CurrencyList>
     )
   }
