@@ -8,8 +8,8 @@ const ExchangeMain = ( {currency} ) => {
   const [toCurrency, setToCurrency] =  useState('TO')
   const [fromIndex, setFromIndex] = useState(0)
   const [toIndex, setToIndex] = useState(0)
-  const [fromAmount, setFromAmount] = useState(0)
-  const [toAmount, setToAmount] = useState(0)
+  const [fromAmount, setFromAmount] = useState(0.00)
+  const [toAmount, setToAmount] = useState(0.00)
   const [exchangeDirection, setExchangeDirection] = useState('')
 
   useEffect(() => {
@@ -68,6 +68,11 @@ const ExchangeMain = ( {currency} ) => {
       : list.style.display = "none"
   }
 
+  const inputAmount = (e) => {
+    e.preventDefault()
+    setFromAmount(e.target.value)
+  }
+
   const resetStates = () => {
     setFromAmount(0)
     setToAmount(0)
@@ -91,7 +96,7 @@ const ExchangeMain = ( {currency} ) => {
         <ExchangeContainer>
           <Amount>
             <p>Give</p>
-            <ExchangeInput id="amountIn" placeholder={ fromAmount } onChange={ e => setFromAmount(e.target.value) } type="number" />
+            <ExchangeInput id="amountIn" placeholder="0.00" onChange={ e => inputAmount(e) } type="number" />
           </Amount>
           <ExchangeButton onClick={ () => showList('from') }>
             <ExBtnContent>{ fromCurrency }</ExBtnContent>
