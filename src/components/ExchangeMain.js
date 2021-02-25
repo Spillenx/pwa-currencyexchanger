@@ -8,13 +8,13 @@ const ExchangeMain = ( {currency} ) => {
   const [toCurrency, setToCurrency] =  useState('TO')
   const [fromIndex, setFromIndex] = useState(0)
   const [toIndex, setToIndex] = useState(0)
-  const [fromAmount, setFromAmount] = useState(0)
-  const [toAmount, setToAmount] = useState(0)
+  const [fromAmount, setFromAmount] = useState(0.00)
+  const [toAmount, setToAmount] = useState(0.00)
   const [exchangeDirection, setExchangeDirection] = useState('')
 
   useEffect(() => {
     if(currency) {
-      const rates = Object.values(currency.conversion_rates)
+      const rates = Object.values(currency.conversion_rates || [])
 
     const result = fromAmount * rates[toIndex] / rates[fromIndex]
     setToAmount(result.toFixed(2))
@@ -37,13 +37,18 @@ const ExchangeMain = ( {currency} ) => {
   }
 
   const listCurrencies = () => {
-    const currencyKeys = Object.keys(currency.conversion_rates)
+    
+    const currencyKeys = Object.keys(currency.conversion_rates || [])
 
     return (
       <CurrencyList>
-        { currencyKeys.map((curr, index) => 
+        { currencyKeys.length > 0 && 
+          currencyKeys.map((curr, index) => 
           <ListItem key={ index } onClick={ () => selectedCurrency(curr, index) }> { curr } </ListItem>
         ) }
+        { currencyKeys.length === 0 && 
+          <ListItem onClick={ showList }>No conversion rates available at the moment. Please try again later.</ListItem> 
+        }
       </CurrencyList>
     )
   }
@@ -61,6 +66,11 @@ const ExchangeMain = ( {currency} ) => {
     list.style.display === "none"
       ? list.style.display = "block"
       : list.style.display = "none"
+  }
+
+  const inputAmount = (e) => {
+    e.preventDefault()
+    setFromAmount(e.target.value)
   }
 
   const resetStates = () => {
@@ -86,7 +96,7 @@ const ExchangeMain = ( {currency} ) => {
         <ExchangeContainer>
           <Amount>
             <p>Give</p>
-            <ExchangeInput id="amountIn" placeholder={ fromAmount } onChange={ e => setFromAmount(e.target.value) } type="number" />
+            <ExchangeInput id="amountIn" placeholder="0.00" onChange={ e => inputAmount(e) } type="number" />
           </Amount>
           <ExchangeButton onClick={ () => showList('from') }>
             <ExBtnContent>{ fromCurrency }</ExBtnContent>
