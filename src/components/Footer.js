@@ -4,10 +4,17 @@ import RefreshIcon from '@material-ui/icons/Refresh'
 
 const Footer = ({ lastUpdate, resetCurrencies }) => {
 
+  const formatDate = () => {
+    const date = new Date(lastUpdate.time_last_update_utc)
+    console.log(date.toLocaleString())
+
+    return date.toLocaleString()
+  }
+
   return (
     <FooterWrapper>
         { lastUpdate &&
-          <p>Latest currency update: { lastUpdate.time_last_update_utc }</p>
+          <p>Latest currency update: { formatDate() }</p>
         }
         <RefreshButton onClick={ resetCurrencies }>
           <RefreshIcon />
