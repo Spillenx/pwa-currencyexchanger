@@ -31,11 +31,11 @@ const FooterWrapper = styled.div`
   place-items: center;
   font-size: 10px;
   bottom: 0;
+  padding: 10px
 `
 
 const RefreshButton = styled.div`
-  padding: 5px;
-  margin-bottom: 5px;
+  margin: 5px;
   border-radius: 90px;
   :hover {
     cursor: pointer;
