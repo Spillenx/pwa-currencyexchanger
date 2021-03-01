@@ -16,7 +16,6 @@ const App = () => {
         const fetchData = async() => {
           await fetchCurrencyAPI()
             .then(res => {
-              console.log(res)
               setCurrency(res)
             })
         }

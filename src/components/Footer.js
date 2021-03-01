@@ -6,8 +6,6 @@ const Footer = ({ lastUpdate, resetCurrencies }) => {
 
   const formatDate = () => {
     const date = new Date(lastUpdate.time_last_update_utc)
-    console.log(date.toLocaleString())
-
     return date.toLocaleString()
   }
 
